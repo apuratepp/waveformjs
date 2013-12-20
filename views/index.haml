@@ -110,6 +110,17 @@
       %h3 Waveform#optionsForSyncedStream()
       %p The <code>optionsForSyncedStream</code> method returns an options object that can be passed to soundManager or the SoundCloud JS SDK <code>SC.stream</code> method. These options will automatically sync and redraw the waveform according to its stream loading and playing progress. The options will only include the whileplaying and whileloading option, all others can be overridden.
 
+      %p Default waveform colors can passed as options to soundManager
+
+      %pre.code
+        = preserve do
+          :escaped
+            soundManager.defaultOptions = waveform.optionsForSyncedStream({
+              playedColor:  "rgba(39,  167, 223, 1.00)",
+              loadedColor:  "rgba(39,  167, 223, 0.5)",
+              defaultColor: "rgba(255, 255, 255, 1.00)",
+            })
+
       %a(name="endpoint")
         %h3 SoundCloud Waveform Endpoint
       %p The endpoint is located at <a href="http://waveformjs.org/w">http://waveformjs.org/w</a> and accepts a <code>url</code> parameter that is pointing to a SoundCloud waveform image URL (waveform_url in the track object). The response will be an array of floats between 0 and 1. JSONP is supported.
